@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting to Floreo Labs</title>
+</head>
+<body>
+  <p>
+    <a id="destination" href="https://www.floreolabs.org/">
+      Continue to Floreo Labs
+    </a>
+  </p>
+
+  <noscript>
+    <p>
+      JavaScript is required to forward this address automatically.
+      You can also replace the hostname in your address bar
+      with www.floreolabs.org.
+    </p>
+  </noscript>
+
+  <script>
+    const destination = new URL("https://www.floreolabs.org/");
+
+    destination.pathname = window.location.pathname;
+    destination.search = window.location.search;
+    destination.hash = window.location.hash;
+
+    document.getElementById("destination").href = destination.href;
+
+    if (
+      window.location.protocol === "https:" ||
+      window.location.protocol === "http:"
+    ) {
+      window.location.replace(destination.href);
+    }
+  </script>
+</body>
+</html>
